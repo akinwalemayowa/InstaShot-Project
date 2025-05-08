@@ -6,18 +6,20 @@ export default function useVideoControl() {
 
   const handlePlayPause = () => {
     if (videoRef.current) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying((prev) => !prev);
     }
-    setIsPlaying((prev) => !prev);
   };
 
   useEffect(() => {
     if (videoRef.current) {
-        videoRef.current.play();
-        setIsPlaying(true)
+      videoRef.current.play();
+      setIsPlaying(true);
     }
-  }, [])
-  return <div>useVideoControl</div>;
+  }, []);
+  return {videoRef, isPlaying, handlePlayPause}
 }

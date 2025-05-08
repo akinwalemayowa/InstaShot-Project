@@ -17,7 +17,7 @@ const connectToDb = async () => {
     }
     //try to connect to db if we are not connected
     const db = await mongoose.connect(mongoUri, {
-      dbName: "Instaclone",
+      dbName: "Instaclone1",
       serverSelectionTimeoutMS: 45000,
       socketTimeoutMS: 5000,
     });
